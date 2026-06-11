@@ -100,7 +100,8 @@ docker images | grep vllm-node
 
 **4. Launch and verify**
 
-4.1. Launch the cluster and run the model. This command will start the cluster and run the model in the background. The -d flag will run the cluster in detached mode, allowing you to continue using the terminal while the cluster is running. The -n flag specifies the IP addresses of the nodes in the cluster, and the --eth-if flag specifies the network interface to use for communication between the nodes. The --master-port flag specifies the port to use for communication between the master and worker nodes. The rest of the command specifies the parameters for running vllm serve, including the model path, port, host, GPU memory utilization, tensor parallelism, pipeline parallelism, distributed executor backend, maximum model length, and load format.
+**4.1. Launch the cluster and run the model**
+This command will start the cluster and run the model in the background. The -d flag will run the cluster in detached mode, allowing you to continue using the terminal while the cluster is running. The -n flag specifies the IP addresses of the nodes in the cluster, and the --eth-if flag specifies the network interface to use for communication between the nodes. The --master-port flag specifies the port to use for communication between the master and worker nodes. The rest of the command specifies the parameters for running vllm serve, including the model path, port, host, GPU memory utilization, tensor parallelism, pipeline parallelism, distributed executor backend, maximum model length, and load format.
 ```
 export VLLM_SPARK_EXTRA_DOCKER_ARGS="-v /home/<username>/models/Nemotron120B:/models/Nemotron120B:ro"
 
@@ -169,9 +170,39 @@ The command specifies the backend to use (openai-chat compatible), the base URL 
 If all goes while, after a while you will have your test results and can start using the model for your own applications!
 
 Example test results:
-
-
-
+Starting initial single prompt test run...
+Skipping endpoint ready check.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1.0 (Poisson process)
+Maximum request concurrency: 8
+100%|█████████████████████████████████████████████████████████████████████| 128/128 [18:11<00:00,  8.53s/it]
+tip: install termplotlib and gnuplot to plot the metrics
+============ Serving Benchmark Result ============
+Successful requests:                     128
+Failed requests:                         0
+Maximum request concurrency:             8
+Benchmark duration (s):                  1091.90
+Total input tokens:                      133121
+Total generated tokens:                  65536
+Request throughput (req/s):              0.12
+Output token throughput (tok/s):         60.02
+Peak output token throughput (tok/s):    80.00
+Peak concurrent requests:                12.00
+Total token throughput (tok/s):          181.94
+---------------Time to First Token----------------
+Mean TTFT (ms):                          2208.78
+Median TTFT (ms):                        1763.52
+P99 TTFT (ms):                           8839.80
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          129.12
+Median TPOT (ms):                        128.97
+P99 TPOT (ms):                           133.07
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           128.86
+Median ITL (ms):                         126.24
+P99 ITL (ms):                            136.76
+==================================================
 
 
 ## Glossary
