@@ -169,7 +169,8 @@ vllm bench serve \
 The command specifies the backend to use (openai-chat compatible), the base URL for the API, the endpoint for chat completions, the model and tokenizer paths, the dataset to use for testing (random), the input and output lengths, the number of prompts to test, the maximum concurrency, and the temperature for generating responses.
 If all goes while, after a while you will have your test results and can start using the model for your own applications!
 
-Example test results:
+**Example test results:**
+
 Starting initial single prompt test run...
 Skipping endpoint ready check.
 Starting main benchmark run...
