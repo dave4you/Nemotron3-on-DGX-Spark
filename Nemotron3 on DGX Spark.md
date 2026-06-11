@@ -99,6 +99,7 @@ docker images | grep vllm-node
 
 
 **4. Launch and verify**
+
 4.1. Launch the cluster and run the model. This command will start the cluster and run the model in the background. The -d flag will run the cluster in detached mode, allowing you to continue using the terminal while the cluster is running. The -n flag specifies the IP addresses of the nodes in the cluster, and the --eth-if flag specifies the network interface to use for communication between the nodes. The --master-port flag specifies the port to use for communication between the master and worker nodes. The rest of the command specifies the parameters for running vllm serve, including the model path, port, host, GPU memory utilization, tensor parallelism, pipeline parallelism, distributed executor backend, maximum model length, and load format.
 ```
 export VLLM_SPARK_EXTRA_DOCKER_ARGS="-v /home/<username>/models/Nemotron120B:/models/Nemotron120B:ro"
