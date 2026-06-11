@@ -20,7 +20,7 @@ My goal is not to explain every technical detail. Instead, I aim to provide a pr
 ## Usefull sources
 [DGX Station](https://build.nvidia.com/station)
 
-[playbooks](https://deepwiki.com/NVIDIA/dgx-spark-playbooks)
+[Playbooks](https://deepwiki.com/NVIDIA/dgx-spark-playbooks)
 
 
 ## Prerequisites
