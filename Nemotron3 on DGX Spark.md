@@ -36,6 +36,9 @@ or do get some help from a colleague or friend who has this experience._
 5. Make sure your DGX Spark environment is up to data (use NVIDIA SYNC to check)
 6. Have a 2 node spark cluster running on DGX Spark and a **proper description of the interfaces and IP addresses**. Follow the instructions provided by NVIDIA to get your cluster up and running. Tip: instead of scripting, use the Cluster Config UI available on **NVIDIA Sync**, which is more user-friendly and less error-prone. 
 
+## My Environment
+My DGX Spark environments consists of 2 Acer Veriton GN100 AI Mini Workstations directly connected through a QSFP/CX7 cable for high-performance interconnect.
+The Veriton GN100 AI Mini Workstation is a strong example of Acer's capabilities beyond the consumer market—compact, well-built, and impressively solid for professional AI and workstation workloads. An independent [review](https://www.storagereview.com/review/nvidia-dgx-spark-thermal-test-how-oem-cooling-designs-stack-up) found its thermal design to be particularly effective, delivering excellent cooling performance under load, which is critical for maintaining sustained AI and compute-intensive workloads.
 
 ## Nemotron 3
 ### Download Nemotron 3
