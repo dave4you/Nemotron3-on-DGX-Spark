@@ -118,7 +118,7 @@ export VLLM_SPARK_EXTRA_DOCKER_ARGS="-v /home/<username>/models/Nemotron120B:/mo
   -tp 1 \
   -pp 2 \
   --distributed-executor-backend ray \
-  --max-model-len 4096 \
+  --max-model-len 65536 \
   --load-format fastsafetensors
 ```
 
