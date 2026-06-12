@@ -103,13 +103,14 @@ docker images | grep vllm-node
 **4.1. Launch the cluster and run the model**
 This command will start the cluster and run the model in the background. The -d flag will run the cluster in detached mode, allowing you to continue using the terminal while the cluster is running. The -n flag specifies the IP addresses of the nodes in the cluster, and the --eth-if flag specifies the network interface to use for communication between the nodes. The --master-port flag specifies the port to use for communication between the master and worker nodes. The rest of the command specifies the parameters for running vllm serve, including the model path, port, host, GPU memory utilization, tensor parallelism, pipeline parallelism, distributed executor backend, maximum model length, and load format.
 ```
-export VLLM_SPARK_EXTRA_DOCKER_ARGS="-v /home/<username>/models/Nemotron120B:/models/Nemotron120B:ro"
+export VLLM_SPARK_EXTRA_DOCKER_ARGS="-v /home/dave4you/models/Nemotron120B:/models/Nemotron120B:ro"
 
 ./launch-cluster.sh \
   -d \
-  -n <ip address node 1>,<ip address node 2> \
+  -n 10.100.72.1,10.100.72.2 \
   --eth-if enp1s0f0np0 \
   --master-port 29501 \
+  --apply-mod ./mods/nemotron-super \
   exec vllm serve \
   /models/Nemotron120B \
   --port 8000 \
@@ -119,7 +120,11 @@ export VLLM_SPARK_EXTRA_DOCKER_ARGS="-v /home/<username>/models/Nemotron120B:/mo
   -pp 2 \
   --distributed-executor-backend ray \
   --max-model-len 65536 \
-  --load-format fastsafetensors
+  --load-format fastsafetensors \
+  --enable-auto-tool-choice \
+  --tool-call-parser qwen3_coder \
+  --reasoning-parser super_v3 \
+  --reasoning-parser-plugin /workspace/vllm/super_v3_reasoning_parser.py
 ```
 
 The script will:
